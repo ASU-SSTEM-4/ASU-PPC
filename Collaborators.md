@@ -1,1 +1,2 @@
 # Collaborators
+Joseph Howard
