@@ -1,2 +1,4 @@
 client/node_modules/.cache
 client/node_modules/*
+server/node_modules/.cache
+server/node_modules/*
