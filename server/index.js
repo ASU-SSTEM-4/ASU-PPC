@@ -8,13 +8,13 @@ const app = express();
 
 app.get("/api", (req, res) => {
     // Connecting to mongo database
-    res = MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, function(err, db) {
         if (err) throw err;
 
         const datab = db.db("PPC");
-        datab.collection("user-data").findOne({}, function(err, res) {
+        datab.collection("user-data").findOne({}, function(err, result) {
             if (err) throw err;
-            console.log(res.message);
+            res.json(result);
             db.close();
         });
     });
