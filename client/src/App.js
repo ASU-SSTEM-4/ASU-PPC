@@ -9,8 +9,8 @@ function App() {
     fetch("/api")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Response from MongoDB: " + data.message);
-        setMsg(data.message);
+        console.log("Response from MongoDB: " + data.Name);
+        setMsg(data.Name);
       });
   }
 

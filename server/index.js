@@ -3,7 +3,6 @@ const MongoClient = require("mongodb").MongoClient;
 const secrets = require("./secrets");
 
 const url = secrets.mongo_url;
-console.log(url)
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -14,7 +13,7 @@ app.get("/api", (req, res) => {
         if (err) throw err;
 
         const datab = db.db("PPC");
-        datab.collection("user-data").findOne({}, function(err, result) {
+        datab.collection("ProfessorInfo").findOne({}, function(err, result) {
             if (err) throw err;
             res.json(result);
             db.close();
