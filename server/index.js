@@ -1,17 +1,9 @@
 const express = require("express");
 const MongoClient = require("mongodb").MongoClient;
+const secrets = require("./secrets");
 
-const fs = require("fs");
-
-let url = "";
-fs.open("mongo_url.txt", "r", (err, file) => {
-    if (err) throw err;
-    fs.readFile(file, (err, data) => {
-        if (err) throw err;
-        console.log(data.toString());
-        url = data.toString();
-    });
-});
+const url = secrets.mongo_url;
+console.log(url)
 
 const PORT = process.env.PORT || 3001;
 const app = express();
