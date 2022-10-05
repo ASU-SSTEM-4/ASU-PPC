@@ -8,6 +8,18 @@ import Home from "./Pages/Public/Home/Home";
 import './App.css';
 
 function App() {
+
+  const [msg, setMsg] = useState("");
+
+  onclick = () => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Response from MongoDB: " + data.Name);
+        setMsg(data.Name);
+      });
+  }
+
   return (
     <Router>
       <Navbar/>
