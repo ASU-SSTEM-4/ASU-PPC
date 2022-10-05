@@ -1,12 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-import Hero from './components/Hero/Hero';
+import { React, useState } from 'react';
 
 function App() {
+
+  const [msg, setMsg] = useState("");
+
+  onclick = () => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Response from MongoDB: " + data.Name);
+        setMsg(data.Name);
+      });
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <Hero/>
+        <button type="button" onClick={onclick}>Click Me!</button>
+        <p>{msg}</p>
       </header>
     </div>
   );
